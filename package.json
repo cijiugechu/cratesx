@@ -200,6 +200,7 @@
   "main": "./out/main.js",
   "scripts": {
     "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "build": "vsce package",
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --metafile=meta.json",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
@@ -213,6 +214,7 @@
     "@types/node": "20.3.3",
     "@types/vscode": "^1.79.1",
     "@vscode/test-electron": "^2.3.3",
+    "@vscode/vsce": "^2.31.1",
     "esbuild": "0.18.11",
     "glob": "^10.3.1",
     "mocha": "^10.2.0",
