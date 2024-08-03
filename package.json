@@ -1,25 +1,25 @@
 {
-  "name": "crates",
-  "displayName": "crates",
+  "name": "cratesx",
+  "displayName": "cratesx",
   "description": "Helps Rust developers managing dependencies with Cargo.toml.",
-  "version": "0.6.7",
-  "publisher": "serayuzgur",
+  "version": "0.7.0",
+  "publisher": "nemurubaka",
   "author": {
-    "name": "serayuzgur",
-    "email": "serayuzgur@gmail.com"
+    "name": "nemurubaka",
+    "email": "cijiugechu@gmail.com"
   },
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/serayuzgur/crates/issues",
-    "email": "serayuzgur@gmail.com"
+    "url": "https://github.com/cijiugechu/cratesx/issues",
+    "email": "cijiugechu@gmail.com"
   },
-  "homepage": "https://github.com/serayuzgur/crates/blob/master/README.md",
+  "homepage": "https://github.com/cijiugechu/cratesx/blob/main/README.md",
   "engines": {
     "vscode": "^1.79.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/serayuzgur/crates.git"
+    "url": "https://github.com/cijiugechu/cratesx.git"
   },
   "icon": "icon.png",
   "keywords": [
@@ -39,44 +39,44 @@
   "contributes": {
     "commands": [
       {
-        "command": "crates.replaceVersion",
+        "command": "cratesx.replaceVersion",
         "title": "Do not call manually ! Replace Version of the provided dependency",
-        "category": "👆 Crates"
+        "category": "👆 CratesX"
       },
       {
-        "command": "crates.retry",
+        "command": "cratesx.retry",
         "title": "Retry to fetch Cargo.toml",
-        "category": "👆 Crates"
+        "category": "👆 CratesX"
       },
       {
-        "command": "crates.updateAll",
+        "command": "cratesx.updateAll",
         "title": "Update All dependencies of the Cargo.toml",
-        "category": "👆 Crates"
+        "category": "👆 CratesX"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "Crates",
+      "title": "CratesX",
       "properties": {
-        "crates.listPreReleases": {
+        "cratesx.listPreReleases": {
           "type": "boolean",
           "scope": "resource",
           "default": false,
           "description": "If true, pre-release versions will be available."
         },
-        "crates.indexServerURL": {
+        "cratesx.indexServerURL": {
           "type": "string",
           "scope": "resource",
           "description": "URL of the index server. Default value goes to official sparse index. Alternative values would be onpremise index servers.",
           "default": "https://index.crates.io"
         },
-        "crates.errorDecorator": {
+        "cratesx.errorDecorator": {
           "type": "string",
           "scope": "resource",
           "default": "❗️❗️❗️",
           "description": "The text to show when a dependency has errors."
         },
-        "crates.errorDecoratorCss": {
+        "cratesx.errorDecoratorCss": {
           "type": "object",
           "default": null,
           "properties": {
@@ -112,13 +112,13 @@
           },
           "description": "CSS to be applied to a line when there is a dependency error"
         },
-        "crates.incompatibleDecorator": {
+        "cratesx.incompatibleDecorator": {
           "type": "string",
           "scope": "resource",
           "default": "❌ ${version}",
           "description": "The text template to show when a dependency is not semver compatible. ${version} will be replaced by the latest version info."
         },
-        "crates.incompatibleDecoratorCss": {
+        "cratesx.incompatibleDecoratorCss": {
           "type": "object",
           "default": null,
           "properties": {
@@ -153,13 +153,13 @@
           },
           "description": "CSS to be applied to an incompatible line"
         },
-        "crates.compatibleDecorator": {
+        "cratesx.compatibleDecorator": {
           "type": "string",
           "scope": "resource",
           "default": "✅",
           "description": "The text template to show when a dependency is semver compatible. ${version} will be replaced by the latest version info."
         },
-        "crates.compatibleDecoratorCss": {
+        "cratesx.compatibleDecoratorCss": {
           "type": "object",
           "default": null,
           "properties": {
@@ -203,7 +203,8 @@
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --metafile=meta.json",
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-    "test-compile": "tsc -p ./"
+    "test-compile": "tsc -p ./",
+    "lint": "oxlint ./src"
   },
   "types": "vscode",
   "devDependencies": {
@@ -211,13 +212,11 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "20.3.3",
     "@types/vscode": "^1.79.1",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
     "@vscode/test-electron": "^2.3.3",
     "esbuild": "0.18.11",
-    "eslint": "^8.44.0",
     "glob": "^10.3.1",
     "mocha": "^10.2.0",
+    "oxlint": "^0.6.1",
     "typescript": "^5.1.6"
   },
   "dependencies": {

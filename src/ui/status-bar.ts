@@ -23,28 +23,28 @@ StatusBar.setText = (t: Type, text?: string) => {
   switch (t) {
     case 'Error':
       StatusBar.color = "statusBarItem.errorForeground";
-      StatusBar.text = "$(error) Crates";
+      StatusBar.text = "$(error) CratesX";
       StatusBar.tooltip = "";
       window.showErrorMessage(text || "Error");
       return;
     case 'Warning':
-      StatusBar.text = "$(warning) Crates";
+      StatusBar.text = "$(warning) CratesX";
       StatusBar.color = "statusBarItem.warningForeground";
       break;
     case 'Info':
       StatusBar.color = "statusBarItem.foreground";
-      StatusBar.text = "$(check-all) Crates";
+      StatusBar.text = "$(check-all) CratesX";
       break;
     case 'Loading':
       StatusBar.color = "statusBarItem.activeForeground";
-      StatusBar.text = "$(sync~spin) Crates";
+      StatusBar.text = "$(sync~spin) CratesX";
 
   }
   if (text) {
-    window.setStatusBarMessage(`Crates: ${text}`, 2000);
+    window.setStatusBarMessage(`CratesX: ${text}`, 2000);
   }
   StatusBar.tooltip = text;
-  StatusBar.command = "crates.retry";
+  StatusBar.command = "cratesx.retry";
 
 
 };
