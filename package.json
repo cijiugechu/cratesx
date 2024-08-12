@@ -205,10 +205,12 @@
     "esbuild": "npm run esbuild-base -- --sourcemap",
     "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
     "test-compile": "tsc -p ./",
-    "lint": "oxlint ./src"
+    "lint": "oxlint ./src",
+    "fmt": "biome format --write ."
   },
   "types": "vscode",
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "20.3.3",
