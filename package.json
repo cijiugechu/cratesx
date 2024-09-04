@@ -2,7 +2,7 @@
   "name": "cratesx",
   "displayName": "cratesx",
   "description": "Helps Rust developers managing dependencies with Cargo.toml.",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "publisher": "nemurubaka",
   "author": {
     "name": "nemurubaka",
