@@ -16,7 +16,7 @@ export let decorationHandle: TextEditorDecorationType
  * @param editor Takes crate info and editor. Decorates the editor.
  * @param dependencies
  */
-export default function decorate(
+export default async function decorate(
 	editor: TextEditor,
 	dependencies: Array<Dependency>,
 ) {
@@ -37,7 +37,7 @@ export default function decorate(
 	for (let i = filtered.length - 1; i > -1; i--) {
 		const dependency: Dependency = filtered[i]
 		try {
-			let decor = decoration(
+			let decor = await decoration(
 				editor,
 				dependency.item,
 				dependency.versions || [],

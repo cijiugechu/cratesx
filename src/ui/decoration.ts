@@ -15,6 +15,7 @@ import Item from '../core/Item'
 import { status, ReplaceItem } from '../toml/commands'
 import { validRange } from 'semver'
 import DecorationPreferences from '../core/DecorationText'
+import { getFeaturesByVersion } from '../api/getFeaturesByVersion'
 
 export const latestVersion = (text: string) =>
 	window.createTextEditorDecorationType({
@@ -30,13 +31,13 @@ export const latestVersion = (text: string) =>
  * @param version
  * @param versions
  */
-export default function decoration(
+export default async function decoration(
 	editor: TextEditor,
 	item: Item,
 	versions: string[],
 	decorationPreferences: DecorationPreferences,
 	error?: string,
-): DecorationOptions {
+): Promise<DecorationOptions> {
 	// Also handle json valued dependencies
 
 	const start = item.start
@@ -67,6 +68,25 @@ export default function decoration(
 		hoverMessage = formatError(error)
 		contentCss = decorationPreferences.errorDecoratorCss
 	} else {
+		const crateName = item.key.replace(/"/g, '')
+
+		hoverMessage.appendMarkdown('#### Features')
+		hoverMessage.appendMarkdown(
+			` [Check Docs](https://docs.rs/crate/${crateName}/${maxSatisfying ?? 'latest'}/features)`,
+		)
+		hoverMessage.appendMarkdown('\n')
+
+		if (maxSatisfying) {
+			const features = await getFeaturesByVersion(crateName)
+
+			for (const [featureName, subFeatures] of Object.entries(features)) {
+				hoverMessage.appendMarkdown(
+					`- *${featureName}*: [ ${subFeatures.join(', ')} ]`,
+				)
+				hoverMessage.appendMarkdown('\n')
+			}
+		}
+
 		hoverMessage.appendMarkdown('#### Versions')
 		hoverMessage.appendMarkdown(
 			` _( [View Crate](https://crates.io/crates/${item.key.replace(/"/g, '')}) | [Check Reviews](https://web.crev.dev/rust-reviews/crate/${item.key.replace(/"/g, '')}) )_`,

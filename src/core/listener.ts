@@ -62,7 +62,7 @@ export async function parseAndDecorate(
 			fetchedDepsMap = data[1]
 		}
 
-		decorate(editor, fetchedDeps)
+		await decorate(editor, fetchedDeps)
 		// StatusBar.setText("Info", "Done");
 	} catch (e) {
 		console.error(e)

@@ -226,6 +226,8 @@
   },
   "dependencies": {
     "node-cache": "5.1.2",
-    "semver": "7.6.3"
+    "p-limit": "^6.1.0",
+    "semver": "7.6.3",
+    "undici": "^6.19.8"
   }
 }
