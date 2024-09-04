@@ -2,6 +2,15 @@
 
 All notable changes to the "crates" extension will be documented in this file.
 
+## 0.8.0
+
+- a bug fix for commands missing [nemurubaka](https://github.com/cijiugechu)
+- list features of crates [nemurubaka](https://github.com/cijiugechu)
+
+## 0.7.0
+
+- project forked.
+
 ## 0.6.6
 
 - a fix for extension activator [adamtrilling](https://github.com/adamtrilling)
