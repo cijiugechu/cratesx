@@ -95,7 +95,7 @@ export default function decoration(
 				i === 0 || isCurrent
 					? `[(docs)](https://docs.rs/crate/${item.key.replace(/"/g, '')}/${version})`
 					: ''
-			const command = `${isCurrent ? '**' : ''}[${version}](command:crates.replaceVersion?${encoded})${docs}${isCurrent ? '**' : ''}`
+			const command = `${isCurrent ? '**' : ''}[${version}](command:cratesx.replaceVersion?${encoded})${docs}${isCurrent ? '**' : ''}`
 			hoverMessage.appendMarkdown('\n * ')
 			hoverMessage.appendMarkdown(command)
 		}
