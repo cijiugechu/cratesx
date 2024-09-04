@@ -72,20 +72,20 @@ ${errors.join('\n')}`,
 function loadPref() {
 	const config = workspace.getConfiguration('')
 	const compatibleDecoratorText =
-		config.get<string>('crates.compatibleDecorator') ?? ''
+		config.get<string>('cratesx.compatibleDecorator') ?? ''
 	let compatibleDecoratorCss =
 		config.get<DecorationInstanceRenderOptions>(
-			'crates.compatibleDecoratorCss',
+			'cratesx.compatibleDecoratorCss',
 		) ?? {}
-	const errorText = config.get<string>('crates.errorDecorator')
+	const errorText = config.get<string>('cratesx.errorDecorator')
 	let errorDecoratorCss =
-		config.get<DecorationInstanceRenderOptions>('crates.errorDecoratorCss') ??
+		config.get<DecorationInstanceRenderOptions>('cratesx.errorDecoratorCss') ??
 		{}
 	const incompatibleDecoratorText =
-		config.get<string>('crates.incompatibleDecorator') ?? ''
+		config.get<string>('cratesx.incompatibleDecorator') ?? ''
 	let incompatibleDecoratorCss =
 		config.get<DecorationInstanceRenderOptions>(
-			'crates.incompatibleDecoratorCss',
+			'cratesx.incompatibleDecoratorCss',
 		) ?? {}
 	const errorDecoratorText = errorText ? errorText + '' : ''
 	if (compatibleDecoratorCss.after == undefined) {

@@ -20,9 +20,9 @@ export async function fetchCrateVersions(
 ): Promise<[Promise<Dependency[]>, Map<string, Dependency[]>]> {
 	// load config
 	const config = workspace.getConfiguration('')
-	const shouldListPreRels = !!config.get('crates.listPreReleases')
+	const shouldListPreRels = !!config.get('cratesx.listPreReleases')
 	var indexServerURL =
-		config.get<string>('crates.indexServerURL') ?? sparseIndexServerURL
+		config.get<string>('cratesx.indexServerURL') ?? sparseIndexServerURL
 
 	var versions
 	try {
